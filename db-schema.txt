@@ -1,0 +1,26 @@
+admin 
+    - id
+    - name
+    - email
+    - password
+    - role_id
+    - status
+    - timestamps
+
+role
+    - id
+    - name
+    - is_super_admin
+    - timestamps
+
+permissions
+    - id
+    - name
+    - key
+    - timestamps
+
+role_permissions
+    - id
+    - role_id
+    - permission_id
+    - timestamps
