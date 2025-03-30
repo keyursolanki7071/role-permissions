@@ -39,4 +39,15 @@ class LoginController extends Controller
             return redirect()->back()->with("error", $e->getMessage());
         }
     }
+
+    public function logout() {
+        try {
+
+            Auth::logout();
+            return redirect(route("admin.login"));
+
+        } catch(Exception $e) {
+            return redirect()->back()->with("error", $e->getMessage());
+        }
+    }
 }
