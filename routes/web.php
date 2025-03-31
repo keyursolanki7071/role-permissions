@@ -20,7 +20,7 @@ Route::prefix("admin")->group(function() {
         /** Manage Roles */
         Route::prefix("role")->group(function() {
             Route::get("/", [RoleController::class, "index"])->name("admin.role.list");
-            Route::get("/{id}", [RoleController::class, "edit"])->name("admin.role.edit");
+            Route::get("/{id}", [RoleController::class, "edit"])->name("admin.role.edit")->can("manage_role");
             Route::post("/{id}", [RoleController::class, "save"])->name("admin.role.update");
         });
 

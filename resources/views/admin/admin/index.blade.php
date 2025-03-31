@@ -20,7 +20,9 @@
                     <td class="border border-gray-200 px-4 py-2">{{ $admin->name }}</td>
                     <td class="border border-gray-200 px-4 py-2">{{ $admin->email }}</td>
                     <td class="border border-gray-200 px-4 py-2">
+                        @can("edit_admin")
                         <button class="px-3 py-1 text-white bg-blue-500 rounded-md text-sm hover:bg-blue-600">Edit</button>
+                        @endcan
                     </td>
                 </tr>
                 @empty
