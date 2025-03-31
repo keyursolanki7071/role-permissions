@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Admin;
+use App\Models\Permissions;
 use App\Models\Role;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -29,5 +30,33 @@ class DatabaseSeeder extends Seeder
                 "role_id"   =>  $role->id
             ]
         );
+        $permissions = [
+            [
+                "name"  =>  "Create Admin",
+                "key"   =>  "create_admin",
+                "created_at"    =>  now(),
+                "updated_at"    =>  now()
+            ],
+            [
+                "name"  =>  "Edit Admin",
+                "key"   =>  "edit_admin",
+                "created_at"    =>  now(),
+                "updated_at"    =>  now()
+            ],
+            [
+                "name"  =>  "Dashboard",
+                "key"   =>  "dashboard",
+                "created_at"    =>  now(),
+                "updated_at"    =>  now()
+            ],
+            [
+                "name"  =>  "Create Role",
+                "key"   =>  "create_role",
+                "created_at"    =>  now(),
+                "updated_at"    =>  now()
+            ]
+        ];
+
+        Permissions::insert($permissions);
     }
 }

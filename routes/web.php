@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +16,15 @@ Route::prefix("admin")->group(function() {
     Route::middleware("auth")->group(function() {
         Route::get("logout", [LoginController::class, "logout"])->name("admin.logout");
         Route::get("dashboard", [DashboardController::class, "index"])->name("admin.dashboard");
+
+        /** Manage Roles */
+        Route::prefix("role")->group(function() {
+            Route::get("/", [RoleController::class, "index"])->name("admin.role.list");
+        });
+
+        /** Manage Admin */
+        Route::get("/", [AdminController::class, "index"])->name("admin.index");
     });
+
 
 });
