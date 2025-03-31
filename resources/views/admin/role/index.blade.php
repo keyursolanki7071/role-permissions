@@ -18,7 +18,7 @@
                     <td class="border border-gray-200 px-4 py-2">{{ $role->id }}</td>
                     <td class="border border-gray-200 px-4 py-2">{{ $role->name }}</td>
                     <td class="border border-gray-200 px-4 py-2">
-                        <button class="px-3 py-1 text-white bg-blue-500 rounded-md text-sm hover:bg-blue-600">Edit</button>
+                        <a href="{{ route('admin.role.edit', ['id' => $role->id]) }}" class="px-3 py-1 text-white bg-blue-500 rounded-md text-sm hover:bg-blue-600">Edit</a>
                     </td>
                 </tr>
                 @empty
