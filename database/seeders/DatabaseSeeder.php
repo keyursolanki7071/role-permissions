@@ -17,6 +17,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // Role::create([
+        //     "name"  =>  "Manager",
+        //     "is_super_admin"    =>  Role::STATUS_NO
+        // ]);
         $role = Role::create([
             "name"  =>  "Super Admin",
             "is_super_admin"    =>  Role::STATUS_YES

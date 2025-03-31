@@ -54,7 +54,7 @@ class RoleController extends Controller
             $data = $request->all();
 
             $role->name = $data["name"];
-            $role->is_super_admin = $data["is_super_admin"] ? Role::STATUS_YES : Role::STATUS_NO;
+            $role->is_super_admin = isset($data["is_super_admin"]) && $data["is_super_admin"] ? Role::STATUS_YES : Role::STATUS_NO;
             if(!empty($data['permissions'])) {
                 $role->permissions()->sync($data['permissions']);
             }

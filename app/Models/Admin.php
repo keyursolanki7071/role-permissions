@@ -31,7 +31,8 @@ class Admin extends User
         if($this->isSuperAdmin()) {
             return true;
         }
-        return $this->role->whereHas("permissions", function($query) use ($permission) {
+       
+        return $this->role()->whereHas("permissions", function($query) use ($permission) {
             $query->where("key", $permission);
         })->exists();
     }
