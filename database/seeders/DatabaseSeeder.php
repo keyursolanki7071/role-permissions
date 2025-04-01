@@ -18,12 +18,12 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         
-        $role = Role::create([
+        $roleSuperAdmin = Role::create([
             "name"  =>  "Super Admin",
             "is_super_admin"    =>  Role::STATUS_YES
         ]);
 
-        Role::create([
+        $roleManager = Role::create([
             "name"  =>  "Manager",
             "is_super_admin"    =>  Role::STATUS_NO
         ]);
@@ -33,9 +33,19 @@ class DatabaseSeeder extends Seeder
                 "name"  =>  "Admin",
                 "email" =>  "admin@gmail.com",
                 "password"  =>  Hash::make("Test@1234"),
-                "role_id"   =>  $role->id
+                "role_id"   =>  $roleSuperAdmin->id
             ]
         );
+
+        Admin::create(
+            [
+                "name"  =>  "Manager Admin",
+                "email" =>  "manager@admin.com",
+                "password"  =>  Hash::make("Test@1234"),
+                "role_id"   =>  $roleManager->id
+            ]
+        );
+
         $permissions = [
             [
                 "name"  =>  "Create Admin",
