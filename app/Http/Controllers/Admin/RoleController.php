@@ -62,7 +62,6 @@ class RoleController extends Controller
             return redirect(route("admin.role.list"));
             
         } catch (Exception $e) {
-            dd($e->getMessage());
             return redirect()->back()->with("error", $e->getMessage());
         }
     }
